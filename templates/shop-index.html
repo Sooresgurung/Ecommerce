@@ -71,7 +71,7 @@ p {
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">{{product.name}}</a></h3>
+                  <h3><a href="detail/{{product.slug}}">{{product.name}}</a></h3>
                   {% if product.discounted_price > 0 %}
                   <div class="pi-price">${{ product.discounted_price }}</div>
                   {% else %}
@@ -91,45 +91,47 @@ p {
         <!-- END SALE PRODUCT & NEW ARRIVALS -->
 
         <!-- BEGIN SIDEBAR & CONTENT -->
-        <div class="row margin-bottom-40 ">
-          <!-- BEGIN SIDEBAR -->
-          <div class="sidebar col-md-3 col-sm-4">
-            <ul classcategories ="list-group margin-bottom-25 sidebar-menu">
-              {% for cat in categories %}
-              <li class="list-group-item clearfix dropdown">
-                <a href="shop-product-list.html">
-                  <i class="fa fa-angle-right"></i>
-                  {{cat.name}}
-                </a>
-                <ul class="dropdown-menu">
-                  <li class="list-group-item dropdown clearfix">
-                    <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sports</a>
-                      <ul class="dropdown-menu">
-                        <li class="list-group-item dropdown clearfix">
-                          <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic 1</a></li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic 2</a></li>
-                          </ul>
-                        </li>
-                        <li class="list-group-item dropdown clearfix">
-                          <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport  </a>
-                          <ul class="dropdown-menu">
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 1</a></li>
-                            <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 2</a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                  </li>
-                  {% for subcategory in subcategories %}
-                  <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> {{subcategory.name}}</a></li>
-                  {% endfor %}
-                </ul>
-              </li>
-              {% endfor %}
+         <div class="row margin-bottom-40 ">
+           <!-- BEGIN SIDEBAR -->
+           <div class="sidebar col-md-3 col-sm-4">
+             <ul classcategories ="list-group margin-bottom-25 sidebar-menu">
+               {% for cat in categories %}
+               <li class="list-group-item clearfix dropdown">
+                 <a href="category/{{cat.slug}}">
+                   <i class="fa fa-angle-right"></i>
+                   {{cat.name}}
+                 </a>
+                </li>
+                 <ul class="dropdown-menu">
+                   <li class="list-group-item dropdown clearfix">
+                     <a href="category/{{cat.slug}}"><i class="fa fa-angle-right"></i> Shoes </a>
+                       <ul class="dropdown-menu">
+                         <li class="list-group-item dropdown clearfix">
+                           <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic </a>
+                           <ul class="dropdown-menu">
+                             <li><a href="category/{{cat.slug}}"><i class="fa fa-angle-right"></i> Classic 1</a></li>
+                             <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Classic 2</a></li>
+                           </ul>
+                         </li>
+                         <li class="list-group-item dropdown clearfix">
+                           <a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport  </a>
+                           <ul class="dropdown-menu">
+                             <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 1</a></li>
+                             <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Sport 2</a></li>
+                           </ul>
+                         </li>
+                       </ul>
+                   </li>
+                   <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Trainers</a></li>
+                   <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Jeans</a></li>
+                   <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> Chinos</a></li>
+                   <li><a href="shop-product-list.html"><i class="fa fa-angle-right"></i> T-Shirts</a></li>
+                 </ul>
+               {% endfor %}
 
-            </ul>
-          </div>
+             </ul>
+           </div>
+
           <!-- END SIDEBAR -->
           <!-- BEGIN CONTENT -->
           <div class="col-md-9 col-sm-8">
@@ -145,7 +147,7 @@ p {
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">{{hot.name}}</a></h3>
+                  <h3><a href="detail/{{hot.slug}}">{{hot.name}}</a></h3>
                   {% if hot.discounted_price > 0 %}
                   <div class="pi-price">${{hot.discounted_price}}</div>
                   {% else %}
@@ -182,7 +184,7 @@ p {
                       <a href="#product-pop-up" class="btn btn-default fancybox-fast-view">View</a>
                     </div>
                   </div>
-                  <h3><a href="shop-item.html">{{sale.name}}</a></h3>
+                  <h3><a href="detail/{{sale.slug}}">{{sale.name}}</a></h3>
                   {% if sale.discounted_price > 0 %}
                   <div class="pi-price">${{sale.discounted_price}}</div>
                   {% else %}
