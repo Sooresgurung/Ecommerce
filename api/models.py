@@ -63,9 +63,16 @@ class Contact(models.Model):
 class Cart(models.Model):
     user = models.CharField(max_length=400)
     slug = models.CharField(max_length=400)
-    item = models.ForeignKey(Product,on_delete = models.CASCADE)
+    items = models.ForeignKey(Product,on_delete = models.CASCADE)
     quantity = models.IntegerField(default = 1)
     checkout = models.BooleanField(default = False)
+
+    def __str__(self):
+        return self.user
+
+class OTP(models.Model):
+    user = models.CharField(max_length = 400)
+    otp = models.CharField(max_length = 20)
 
     def __str__(self):
         return self.user
